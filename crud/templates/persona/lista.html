@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    {% if personas %}
+        <h2>Lista de Personas</h2>
+        <ul>
+            {% for persona in personas %}
+                <li>{{ persona.nombre }} {{ persona.apellido }} - {{ persona.edad }} años</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+{% endblock content %}

@@ -1,0 +1,29 @@
+# Entorno virtual
+venv/
+env/
+ENV/
+.venv/
+
+# Archivos compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de base de datos
+db.sqlite3
+
+# Archivos de entorno / claves
+.env
+
+# Archivos de VSCode
+.vscode/
+
+# Archivos de sistema
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+Thumbs.db
+ehthumbs.db
+Desktop.ini
