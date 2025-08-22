@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Buscar Persona</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Buscar..." class="form-control">
+        <button type="submit" class="btn btn-primary mt-2">Buscar</button>
+    </form>
+
+    {% if personas %}
+        <h2>Resultados de la búsqueda:</h2>
+        <ul class="list-group mt-3">
+            {% for persona in personas %}
+                <li class="list-group-item">
+                    <a href="{% url 'persona:detalle' persona.pk %}">{{ persona.nombre }} {{ persona.apellido }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+{% endblock %}
