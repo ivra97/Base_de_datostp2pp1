@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 #CBV para signup view
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 
@@ -15,3 +15,12 @@ class SignUpView(CreateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Sign Up'
         return context
+    
+class LogoutMessageView(TemplateView):
+    template_name = 'accounts/logout_message.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Deslogearse'
+        return context
+    

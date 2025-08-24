@@ -19,6 +19,11 @@ urlpatterns = [
          auth_views.LogoutView.as_view(), name='logout'),
 
     path(
+        'logout_message',
+        views.LogoutMessageView.as_view(), name='logout_message'
+    ),
+
+    path(
         'signup/', 
         views.SignUpView.as_view(), name='signup'),
 ]
