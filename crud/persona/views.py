@@ -12,6 +12,7 @@ class PersonaListView(ListView):
     model = Persona
     template_name = "persona/lista.html"
     context_object_name = "personas"
+    paginate_by = 10  # Número de personas por página
 
 class PersonaDetailView(DetailView):
     model = Persona
@@ -21,7 +22,7 @@ class PersonaDetailView(DetailView):
 class PersonaCreateView(LoginRequiredMixin, CreateView):
     model = Persona
     template_name = "persona/crear.html"
-    fields = ["nombre", "apellido", "edad"]
+    fields = ["nombre", "apellido", "edad", "oficina"]
     success_url = reverse_lazy("persona:lista")
 
     def get_context_data(self, **kwargs):
@@ -33,7 +34,7 @@ class PersonaCreateView(LoginRequiredMixin, CreateView):
 class PersonaUpdateView(LoginRequiredMixin,UpdateView):
     model = Persona
     template_name = "persona/editar.html"
-    fields = ["nombre", "apellido", "edad"]
+    fields = ["nombre", "apellido", "edad", "oficina"]
     success_url = reverse_lazy("persona:lista")
 
 class PersonaDeleteView(LoginRequiredMixin,DeleteView):
@@ -52,3 +53,9 @@ class PersonaSearchView(ListView):
         if query:
             return Persona.objects.filter(nombre__icontains=query)
         return Persona.objects.none()
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo'] = 'Buscar Persona'
+        context['query'] = self.request.GET.get("q", "")
+        return context

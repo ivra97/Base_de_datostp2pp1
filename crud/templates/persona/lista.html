@@ -19,6 +19,7 @@
                         </li>
                     {% endfor %}
                 </ul>
+                {% include 'pagintator.html' %}
             {% else %}
                 <div class="alert alert-info mb-0">No hay personas registradas.</div>
             {% endif %}
