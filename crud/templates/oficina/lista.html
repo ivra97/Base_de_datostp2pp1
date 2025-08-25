@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Lista de Oficinas</h1>
+    <p class="mb-2 text-muted"> {{ page_obj.paginator.count }} oficinas encontradas.
+
+    </p>
+
+    <div class="table-responsive">
+        <table class="table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Nombre Corto</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for oficina in oficinas %}
+                <tr>
+                    <th scope="row">{{ forloop.counter|add:page_obj.start_index }}</th>
+                    <td>{{ oficina.nombre }}</td>
+                    <td>{{ oficina.nombre_corto }}</td>
+                    <td>
+                        <a href="{% url 'oficina_detalle' oficina.pk %}">Ver</a>
+                        <a href="{% url 'oficina_actualizar' oficina.pk %}">Modificar</a>
+                        <a href="{% url 'oficina_eliminar' oficina.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+                
+                
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination">
+        {% include 'paginator.html' %}
+        
+{% endblock %}

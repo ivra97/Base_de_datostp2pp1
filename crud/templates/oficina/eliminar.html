@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card border-danger shadow">
+        <div class="card-body">
+            <h1 class="card-title text-danger">Eliminar Oficina</h1>
+            <p class="card-text">¿Está seguro que desea eliminar la oficina <strong>"{{ oficina.nombre }} - {{object.nombre_corto}}"</strong>?</p>
+            
+            <form method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+            <a href="{% url 'oficina:lista' %}" class="btn btn-secondary ms-2">Cancelar</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
