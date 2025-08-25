@@ -63,3 +63,4 @@ def run(*args):
         print(f"Error: No se encontró el archivo {csv_file}.")
     except Exception as e:
         print(f"Error inesperado en la importacion: {e}")
+        
