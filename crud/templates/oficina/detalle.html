@@ -2,25 +2,25 @@
 
 {% block content %}
 <div class="container mt-4">
-    <div class="card shadow mb-4 border primary">
+    <div class="card shadow mb-4 border-primary">
         <div class="card-body">
-            <h1 class="card-title text-primary display-4"> {{ oficina.nombre }}</h1>
+            <h1 class="card-title text-primary display-4">{{ oficina.nombre }}</h1>
             <h5 class="card-subtitle mb-2 text-muted">Nombre Corto: {{ oficina.nombre_corto }}</h5>
         </div>
     </div>
 
-    <h2 class="mb-3"> Personas en esta oficina</h2
-    <p class="mb-2 text-muted">Total de personas en esta oficina: {{ oficina.empleados.count }}
-
+    <h2 class="mb-3">Personas en esta oficina</h2>
+    <p class="mb-2 text-muted">
+        Total de personas en esta oficina: {{ oficina.personas.count }}
     </p>
     
     <div class="table-responsive">
         <table class="table table-striped">
-            <thead class="thead-dark">
+            <thead class="table-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Edad</th>
                     <th scope="col">Acciones</th>
                 </tr>
@@ -47,5 +47,5 @@
         </table>
     </div>
     <a href="{% url 'oficina:lista' %}" class="btn btn-outline-primary mt-3">Volver a la lista</a>
-    </div>
-    {% endblock content%}
+</div>
+{% endblock content %}
