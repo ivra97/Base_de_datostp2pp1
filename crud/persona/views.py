@@ -31,11 +31,12 @@ class PersonaCreateView(LoginRequiredMixin, CreateView):
         return context
 
 
-class PersonaUpdateView(LoginRequiredMixin,UpdateView):
+class PersonaUpdateView(UpdateView):
     model = Persona
-    template_name = "persona/editar.html"
+    template_name = 'persona/crear.html'  # <-- usa el mismo template que para crear
     fields = ["nombre", "apellido", "edad", "oficina"]
     success_url = reverse_lazy("persona:lista")
+
 
 class PersonaDeleteView(LoginRequiredMixin,DeleteView):
     model = Persona

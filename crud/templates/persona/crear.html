@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Crear Persona</h1>
+    <h1>{% if object %}Editar Persona{% else %}Crear Persona{% endif %}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Crear</button>
+        <button type="submit" class="btn btn-primary">
+            {% if object %}Guardar cambios{% else %}Crear{% endif %}
+        </button>
     </form>
     <a href="{% url 'persona:lista' %}">Volver a la lista</a>
 {% endblock content %}

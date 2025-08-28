@@ -18,17 +18,17 @@ class OficinaDetailView(DetailView):
 
 class OficinaCreateView(CreateView):
     model = Oficina
-    template_name = 'oficina/form.html'
+    template_name = 'oficina/crear.html'
     fields = ['nombre', 'nombre_corto']  # Ajusta los campos según tu modelo
     success_url = reverse_lazy('oficina:lista')
 
 class OficinaUpdateView(UpdateView):
     model = Oficina
-    template_name = 'oficina/form.html'
+    template_name = 'oficina/crear.html'
     fields = ['nombre', 'nombre_corto']  # Ajusta los campos según tu modelo
     success_url = reverse_lazy('oficina:lista')
 
 class OficinaDeleteView(DeleteView):
     model = Oficina
-    template_name = 'oficina/confirm_delete.html'
+    template_name = 'oficina/eliminar.html'
     success_url = reverse_lazy('oficina:lista')
