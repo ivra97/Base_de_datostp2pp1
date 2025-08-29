@@ -22,8 +22,8 @@
           <td>{{ oficina.nombre }}</td>
           <td>{{ oficina.nombre_corto|slice:":10" }}</td>
           <td>
-            <a href="{% url 'oficina:detalle' oficina.pk %}" class="btn btn-info btn-sm">Ver</a>
-            <a href="{% url 'oficina:actualizar' oficina.pk %}" class="btn btn-warning btn-sm">Modificar</a>
+            <a href="{% url 'oficina:oficina_detalle' oficina.pk %}" class="btn btn-info btn-sm">Ver</a>
+            <a href="{% url 'oficina:editar' oficina.pk %}" class="btn btn-warning btn-sm">Modificar</a>
             <a href="{% url 'oficina:eliminar' oficina.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
           </td>
         </tr>
@@ -32,7 +32,7 @@
     </table>
 </div>
   <div class="pagination">
-    {% include 'paginator.html' %}
+    {% include 'pagintator.html' %}
   </div>
   <a href="{% url 'oficina:lista' %}" class="btn btn-primary">Volver a la lista</a>
   {% else %}

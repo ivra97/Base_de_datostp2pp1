@@ -43,6 +43,8 @@ class OficinaSearchView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q', '')
+        if not query:
+            return self.model.objects.none()
         return Oficina.objects.filter(
             Q(nombre__icontains=query) | Q(nombre_corto__icontains=query)
         )
