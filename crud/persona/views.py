@@ -31,7 +31,7 @@ class PersonaCreateView(LoginRequiredMixin, CreateView):
         return context
 
 
-class PersonaUpdateView(UpdateView):
+class PersonaUpdateView(LoginRequiredMixin,UpdateView):
     model = Persona
     template_name = 'persona/crear.html'  # <-- usa el mismo template que para crear
     fields = ["nombre", "apellido", "edad", "oficina"]

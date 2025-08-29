@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import OficinaListView, OficinaDetailView, OficinaCreateView, OficinaUpdateView, OficinaDeleteView
+from .views import OficinaListView, OficinaDetailView, OficinaCreateView, OficinaUpdateView, OficinaDeleteView, OficinaSearchView
 
 app_name = "oficina"
 
@@ -9,5 +9,6 @@ urlpatterns = [
     path("crear/", OficinaCreateView.as_view(), name="crear"),
     path("editar/<int:pk>/", OficinaUpdateView.as_view(), name="editar"),
     path("eliminar/<int:pk>/", OficinaDeleteView.as_view(), name="eliminar"),
+    path('buscar/', OficinaSearchView.as_view(), name='buscar'),  # <-- agrega esta línea
 ]
 

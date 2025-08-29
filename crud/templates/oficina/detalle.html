@@ -33,7 +33,7 @@
                     <td>{{ persona.nombre }}</td>
                     <td>{{ persona.edad }}</td>
                     <td>
-                        <a href="{% url 'persona:detalle' persona.pk %}" class="btn btn-info btn-sm">Ver</a>
+                        <a href="{% url 'oficina:detalle' persona.pk %}" class="btn btn-info btn-sm">Ver</a>
                         <a href="{% url 'persona:actualizar' persona.pk %}" class="btn btn-warning btn-sm">Modificar</a>
                         <a href="{% url 'persona:eliminar' persona.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>

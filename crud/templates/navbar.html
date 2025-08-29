@@ -14,10 +14,25 @@
           <a class="nav-link" href="{% url 'oficina:lista' %}">Lista de Oficinas</a>
         </li>
       </ul>
-      <form class="d-flex me-2" role="search" action="{% url 'persona:buscar' %}">
-        <input class="form-control me-2 rounded-pill" type="search" placeholder="Buscar persona..." aria-label="Buscar" name="q"/>
+      <form class="d-flex me-2" role="search" method="get" id="navbar-search-form" action="{% url 'persona:buscar' %}">
+        <select class="form-select me-2" name="tipo" id="search-tipo" onchange="updateSearchAction()">
+          <option value="persona">Personas</option>
+          <option value="oficina">Oficinas</option>
+        </select>
+        <input class="form-control me-2 rounded-pill" type="search" placeholder="Buscar..." aria-label="Buscar" name="q"/>
         <button class="btn btn-outline-success rounded-pill" type="submit">Buscar</button>
       </form>
+      <script>
+      function updateSearchAction() {
+        const tipo = document.getElementById('search-tipo').value;
+        const form = document.getElementById('navbar-search-form');
+        if (tipo === 'persona') {
+          form.action = "{% url 'persona:buscar' %}";
+        } else {
+          form.action = "{% url 'oficina:buscar' %}";
+        }
+      }
+      </script>
       {% if user.is_authenticated %}
         <a class="btn btn-danger rounded-pill ms-2" href="{% url 'account_logout' %}">Salir</a>
       {% else %}
